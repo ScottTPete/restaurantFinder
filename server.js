@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 //app.use(session({secret: 'secrets'}));
 
 //ROUTES//
-require('./server/features/yelp/server.yelp.routes')(app)
+
 
 
 

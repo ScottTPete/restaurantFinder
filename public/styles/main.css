@@ -1,0 +1,39 @@
+* {
+	box-sizing: border-box;
+}
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	background-color: gray;
+}
+.restaurantInfoHeaders {
+	height: 7%;
+	margin: 0 auto;
+	border: 1px solid red;
+	width: 25%;
+	display: flex;
+	background-color: whitesmoke;
+	
+}
+.restaurantInfo {
+	color: indianred;
+	font-family: 'Roboto Condensed', sans-serif;
+	width: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#mapContainer {
+	width: 50%;
+	height: 50%;
+	border: 1px solid red;
+	margin: 0 auto;
+}
+#map {
+	height: 100%;
+	width: 100%;
+}
+.infoWindow {
+	border: purple 1px solid;
+}

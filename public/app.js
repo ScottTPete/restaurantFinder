@@ -1,11 +1,11 @@
-angular.module('restaurantFinderApp', ['ui.router']).config(function ($stateProvider, $urlRouterProvider) {
-	/*$stateProvider
+angular.module('restaurantFinderApp', ['ui.router', 'geolocation']).config(function ($stateProvider, $urlRouterProvider) {
+	$stateProvider
 		.state('home', {
 			url: '/',
-//			templateUrl: '',
-			controller: 'restaurantCtrl'
+			templateUrl: './templates/homeTemplate.html',
+			controller: 'userCtrl'
 		})
-/*		.state('login', {
+		.state('login', {
 			url: '/login',
 			templateUrl: '',
 			controller: ''
@@ -19,7 +19,12 @@ angular.module('restaurantFinderApp', ['ui.router']).config(function ($stateProv
 			url: '/favorites/:id',
 			templateUrl: '',
 			controller: ''
-		})*/
+		})
+		.state('restaurant', {
+			url: '/restaurant',
+			templateUrl: './templates/restaurantTemplate.html',
+			controller: 'userCtrl',
+		})
 	
-//	$urlRouterProvider.otherwise('/home');*/
+	$urlRouterProvider.otherwise('/');
 })

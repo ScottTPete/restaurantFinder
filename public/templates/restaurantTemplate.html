@@ -1,0 +1,14 @@
+<div class='restaurantInfoHeaders'>
+	<h1 class="restaurantInfo" id="restaurantData" ng-click='showInfo()'>Restaurant Info</h1>
+	<h1 class="restaurantInfo" ng-click='showMap()'>Directions</h1>
+</div>
+
+
+<div class='restaurantContent' ng-show='restaurantInfo'>
+	<h1>Restaurant Name</h1>
+</div>
+
+
+<div id='mapContainer' ng-style="restaurantMap ? {'visibility': 'visible'} : {'visibility': 'hidden'}">
+	<div id='map'></div>
+</div>

@@ -5,13 +5,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>PLACEHOLDER</title>
 		<link rel="stylesheet" href="./styles/main.css">
+		<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
 	</head>
 
-	<body ng-controller='restaurantCtrl'>
+	<body>
 
-
-		
-		{{test}}
 
 		<ui-view></ui-view>
 
@@ -19,17 +17,20 @@
 		<!--ANGULAR-->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
-		<!--GOOGLE PLACES-->
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1A1lx2JmuYEy9YNVM1-pWjotOjbezTXA&libraries=places"></script>
 		
+		<!--GOOGLE PLACES-->
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6waoW4ugt-Mgv3DmExkW4tzJeS2JQs54&libraries=places,geometry"></script>
 		
 		<!--ANGULAR APP-->
 		<script src="app.js"></script>
 		
 		<!--CONTROLLERS-->
-		<script src="./services/restaurantCtrl.js"></script>
+		<script src="./features/user/userCtrl.js"></script>
 		
 		<!--SERVICES-->
 		<script src="./services/restaurantService.js"></script>
+		
+		<!--GEOLOCATION-->
+		<script src="js/angularjs-geolocation.min.js"></script>
 	</body>
 </html>
