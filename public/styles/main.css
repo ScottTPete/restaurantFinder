@@ -7,6 +7,13 @@ html, body {
 	margin: 0;
 	background-color: gray;
 }
+.navBarContainer {
+	height: 9%;
+	width: 75%;
+	background-color: whitesmoke;
+	display: flex;
+	margin: 0 auto;
+}
 .restaurantInfoHeaders {
 	height: 7%;
 	margin: 0 auto;
