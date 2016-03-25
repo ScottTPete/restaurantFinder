@@ -1,23 +1,24 @@
 angular.module('restaurantFinderApp')
-	.controller('userCtrl', function($scope, geolocation, $state) {
+	.controller('userCtrl', function($scope, geolocation, $state, $rootScope) {
+	
+	
+		$scope.randomPlace = {};
 	
 		$scope.getSearchParams = function() {
+			
+			$scope.request.distance = getMeters($scope.request.distance);
 			console.log($scope.request);
-			console.log($scope.request.type);
-			console.log($scope.request.rating);
 			$state.go('restaurant')
+			$scope.getLocation();
 		}
 		
-	/*	$scope.getSearchResult = function(results, status) {
-			if (status == google.maps.places.PlacesServiceStatus.OK) {
-				for (var i = 0; i < results.length; i++) {
-					var place = results[i];
-					createMarker(results[i]);
-				}
-				console.log(results);
-			}
-		}*/
-	
+		function getMeters(i) {
+			var meters = i*1609.344;
+			return meters.toString();
+		}
+		
+		
+		
 		$scope.restaurantMap = false;
 		$scope.restaurantInfo = true;
 	
@@ -85,42 +86,44 @@ angular.module('restaurantFinderApp')
 				
 				var request = {
 					location: $scope.latLng,
-					radius: '5000',
+					radius: $scope.request.distance,
 					types: ['restaurant', 'bar', 'bakery', 'cafe'],
-					rating: '5'
+					query: $scope.request.keyword,
 				}
+				
 				
 				var foodOptions = new google.maps.places.PlacesService(map);
-			    foodOptions.nearbySearch(request, callback);
+			    foodOptions.textSearch(request, callback);
 				
-				function createMarker (place) {
-					var placeLoc = place.geometry.location;
-					var marker = new google.maps.Marker({
-						map: map,
-						position: place.geometry.location
-					})
-					
-					google.maps.event.addListener(marker, 'click', function() {
-						var infowindow = new google.maps.InfoWindow();
-						infowindow.setContent(place.name);
-						infowindow.open(map, this);
-					});
-				}
+				
 				
 				function callback(results, status) {
 					if(status == google.maps.places.PlacesServiceStatus.OK) {
-						console.log(results);
-						for(var i=0; i <results.length; i++) {
-							var place = results[i];
-							createMarker(results[i]);
-				
-						}
+						var result = results[Math.floor(Math.random()*results.length)];
+						console.log(result);
+						createMarker(result);
+						$rootScope.randomPlace = result;
+						console.log($scope.randomPlace);
 					}
 				}
 			})
 		}
 		
-		$scope.getLocation();
+		function createMarker (place) {
+			var placeLoc = place.geometry.location;
+			var marker = new google.maps.Marker({
+				map: map,
+				position: place.geometry.location
+			})
+
+			google.maps.event.addListener(marker, 'click', function() {
+				var infowindow = new google.maps.InfoWindow();
+				infowindow.setContent(place.name);
+				infowindow.open(map, this);
+			});
+		}
+		
+		
 	
 	
 })

@@ -7,7 +7,7 @@ angular.module('restaurantFinderApp', ['ui.router', 'geolocation']).config(funct
 		})
 		.state('login', {
 			url: '/login',
-			templateUrl: '',
+			templateUrl: './templates/loginTemplate.html',
 			controller: ''
 		})
 		.state('user', {

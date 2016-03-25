@@ -13,7 +13,13 @@ html, body {
 	background-color: whitesmoke;
 	display: flex;
 	margin: 0 auto;
+	justify-content: flex-end;
 }
+.homeLink {
+	display: flex;
+	justify-content: flex-start;
+}
+
 .restaurantInfoHeaders {
 	height: 7%;
 	margin: 0 auto;
@@ -22,6 +28,10 @@ html, body {
 	display: flex;
 	background-color: whitesmoke;
 	
+}
+.restaurantInfoHeaders:hover {
+	background-color: yellow;
+	pointer-events: 
 }
 .restaurantInfo {
 	color: indianred;
